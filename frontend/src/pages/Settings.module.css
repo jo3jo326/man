@@ -1,0 +1,271 @@
+/**
+ * Settings Page Styles (Module CSS)
+ * Mobile-first responsive design with touch-friendly controls
+ */
+
+/* Mobile styles (base) - 320px+ */
+.settingsContainer {
+  padding: 1.5rem 1rem;
+  min-height: calc(100vh - 80px);
+  background: linear-gradient(to bottom, #f9fafb 0%, #ffffff 100%);
+}
+
+.settingsContent {
+  max-width: 900px;
+  margin: 0 auto;
+}
+
+.settingsTitle {
+  font-size: 2rem;
+  font-weight: 800;
+  margin-bottom: 0.5rem;
+  color: var(--color-gray-900);
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.settingsDescription {
+  font-size: 1rem;
+  color: var(--color-text-secondary);
+  margin-bottom: 2rem;
+  line-height: 1.5;
+}
+
+.settingsSection {
+  background: white;
+  padding: 1.5rem;
+  border-radius: var(--radius-lg);
+  box-shadow: var(--shadow-md);
+  margin-bottom: 1.25rem;
+  border: 1px solid var(--color-gray-200);
+  transition: all 0.3s ease;
+}
+
+.settingsSection:active {
+  box-shadow: var(--shadow-lg);
+  border-color: #667eea;
+}
+
+.settingsSection h2 {
+  font-size: 1.25rem;
+  margin-bottom: 1.25rem;
+  color: var(--color-gray-800);
+  border-bottom: 2px solid var(--color-gray-200);
+  padding-bottom: 0.625rem;
+  font-weight: 700;
+}
+
+.settingItem {
+  margin-bottom: 1.25rem;
+}
+
+.settingItem:last-child {
+  margin-bottom: 0;
+}
+
+.settingItem label {
+  display: block;
+  font-weight: 600;
+  color: var(--color-gray-700);
+  margin-bottom: 0.625rem;
+  font-size: 0.938rem;
+  /* Touch-friendly tap target */
+  min-height: 24px;
+  display: flex;
+  align-items: center;
+}
+
+.settingItem input[type="range"] {
+  width: 100%;
+  height: 8px;
+  background: var(--color-gray-200);
+  border-radius: var(--radius-lg);
+  outline: none;
+  transition: background 0.3s ease;
+  -webkit-appearance: none;
+  /* Larger touch target */
+  margin: 0.5rem 0;
+}
+
+.settingItem input[type="range"]::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  appearance: none;
+  width: 24px;
+  height: 24px;
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  cursor: pointer;
+  border-radius: 50%;
+  box-shadow: 0 2px 8px rgba(102, 126, 234, 0.5);
+  transition: transform 0.2s ease;
+}
+
+.settingItem input[type="range"]:active::-webkit-slider-thumb {
+  transform: scale(1.2);
+}
+
+.settingItem select {
+  width: 100%;
+  padding: 0.875rem 1rem;
+  border: 2px solid var(--color-gray-200);
+  border-radius: var(--radius-lg);
+  font-size: 1rem;
+  color: var(--color-gray-700);
+  background: white;
+  transition: all 0.3s ease;
+  cursor: pointer;
+  appearance: none;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 12 12'%3E%3Cpath fill='%23666' d='M10.293 3.293L6 7.586 1.707 3.293A1 1 0 00.293 4.707l5 5a1 1 0 001.414 0l5-5a1 1 0 10-1.414-1.414z'/%3E%3C/svg%3E");
+  background-repeat: no-repeat;
+  background-position: right 1rem center;
+  padding-right: 3rem;
+  /* Touch-friendly height */
+  min-height: 48px;
+}
+
+.settingItem select:focus {
+  outline: none;
+  border-color: #667eea;
+  box-shadow: 0 0 0 3px rgba(102, 126, 234, 0.15);
+}
+
+.settingItem input[type="checkbox"] {
+  margin-right: 0.75rem;
+  width: 22px;
+  height: 22px;
+  cursor: pointer;
+  accent-color: #667eea;
+  /* Touch-friendly */
+  min-width: 22px;
+  min-height: 22px;
+  flex-shrink: 0;
+}
+
+.saveButton {
+  width: 100%;
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  color: white;
+  padding: 1.125rem 1.5rem;
+  border: none;
+  border-radius: var(--radius-lg);
+  font-size: 1.063rem;
+  font-weight: 700;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  margin-top: 1.25rem;
+  box-shadow: 0 4px 14px rgba(102, 126, 234, 0.4);
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  /* Touch-friendly */
+  min-height: 52px;
+}
+
+.saveButton:active {
+  transform: scale(0.98);
+  box-shadow: 0 2px 8px rgba(102, 126, 234, 0.3);
+}
+
+/* Small tablets - 480px+ */
+@media (min-width: 30em) {
+  .settingsContainer {
+    padding: 2rem 1.25rem;
+  }
+
+  .settingsTitle {
+    font-size: 2.25rem;
+  }
+}
+
+/* Tablets - 640px+ */
+@media (min-width: 40em) {
+  .settingsTitle {
+    font-size: 2.5rem;
+  }
+
+  .settingsDescription {
+    font-size: 1.125rem;
+  }
+
+  .settingsSection {
+    padding: 2rem;
+    margin-bottom: 1.5rem;
+  }
+
+  /* Enable hover effects on larger screens */
+  @media (hover: hover) {
+    .settingsSection:hover {
+      box-shadow: var(--shadow-lg);
+      border-color: #667eea;
+    }
+
+    .settingItem input[type="range"]::-webkit-slider-thumb:hover {
+      transform: scale(1.15);
+    }
+
+    .settingItem select:hover {
+      border-color: var(--color-gray-300);
+    }
+
+    .saveButton:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 6px 20px rgba(102, 126, 234, 0.5);
+    }
+  }
+
+  .settingsSection h2 {
+    font-size: 1.375rem;
+    margin-bottom: 1.5rem;
+  }
+
+  .settingItem {
+    margin-bottom: 1.5rem;
+  }
+
+  .settingItem label {
+    font-size: 1rem;
+    margin-bottom: 0.75rem;
+  }
+
+  .saveButton {
+    font-size: 1.125rem;
+  }
+}
+
+/* Desktop - 1024px+ */
+@media (min-width: 64em) {
+  .settingsContainer {
+    padding: 3rem 2rem;
+  }
+
+  .settingsTitle {
+    font-size: 3rem;
+  }
+
+  .settingsDescription {
+    font-size: 1.25rem;
+    margin-bottom: 3rem;
+  }
+
+  .settingsSection {
+    padding: 2.5rem;
+    margin-bottom: 1.75rem;
+  }
+
+  .settingsSection h2 {
+    font-size: 1.5rem;
+    margin-bottom: 1.75rem;
+    padding-bottom: 0.75rem;
+  }
+
+  .settingItem {
+    margin-bottom: 1.75rem;
+  }
+
+  .saveButton {
+    padding: 1.125rem 2rem;
+    margin-top: 1.5rem;
+  }
+}
