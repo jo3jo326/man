@@ -1,0 +1,67 @@
+/**
+ * Home Page Styles
+ * Scoped styles for Home component
+ */
+
+.home-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 100vh;
+  padding: 2rem;
+}
+
+.home-content {
+  text-align: center;
+  max-width: 600px;
+}
+
+.home-title {
+  font-size: 3rem;
+  font-weight: 700;
+  margin-bottom: 1rem;
+  color: #1f2937;
+}
+
+.home-description {
+  font-size: 1.25rem;
+  color: #64748b;
+  margin-bottom: 2rem;
+  line-height: 1.6;
+}
+
+.home-button {
+  background-color: #3b82f6;
+  color: white;
+  padding: 1rem 2rem;
+  border: none;
+  border-radius: 0.5rem;
+  font-size: 1.125rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.home-button:hover {
+  background-color: #2563eb;
+}
+
+.home-button:active {
+  transform: scale(0.98);
+}
+
+/* Responsive design - mobile first */
+@media (max-width: 768px) {
+  .home-title {
+    font-size: 2rem;
+  }
+
+  .home-description {
+    font-size: 1rem;
+  }
+
+  .home-button {
+    padding: 0.875rem 1.5rem;
+    font-size: 1rem;
+  }
+}
