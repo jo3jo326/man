@@ -1,6 +1,10 @@
 import mongoose from 'mongoose';
 
+
 const MONGO_URI = process.env.MONGO_URI || '';
+
+// Debug: print the MongoDB URI being used
+console.log('MONGO_URI from .env:', JSON.stringify(MONGO_URI));
 
 export const connectDB = async () => {
   try {
