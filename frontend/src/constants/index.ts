@@ -34,4 +34,5 @@ export const ROUTES = {
   DASHBOARD: '/dashboard',
   CONVERSATION: '/conversation',
   SETTINGS: '/settings',
+  LOGIN: '/login',
 } as const;
