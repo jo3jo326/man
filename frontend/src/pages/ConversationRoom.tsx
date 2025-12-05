@@ -66,11 +66,12 @@ const ConversationRoom: React.FC = () => {
         };
         recognitionRef.current = recognition;
         recognition.start();
-          // Do NOT clear transcript here; preserve previous transcript for long conversations
+        // Do NOT clear transcript here; preserve previous transcript for long conversations
         setListening(true);
       } else {
-        // Fallback: Demo transcript
-          setTranscript((prev) => prev + 'Hello! This is a demo transcript. (Speech recognition not supported in this browser.) ');
+        // Fallback: Demo transcript and browser warning
+        setTranscript((prev) => prev + 'Hello! This is a demo transcript. (Speech recognition not supported in this browser.) ');
+        alert('Live transcription does not work in Firefox. Please use Chrome or Edge for full functionality.');
         setListening(true);
       }
     } else {
