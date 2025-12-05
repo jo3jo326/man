@@ -107,6 +107,11 @@ const ConversationRoom: React.FC = () => {
       console.log('AI Response:', data.aiResponse); // Debug log
       setAiResponse(data.aiResponse || 'AI: No response.');
       setAudioBase64(data.audio || null);
+      // Auto-play the Azure-generated voice response
+      if (data.audio) {
+        const audio = new Audio(`data:audio/mp3;base64,${data.audio}`);
+        audio.play();
+      }
     } catch (e) {
       setSaveError(e.message || 'Failed to save or get AI response');
     } finally {
