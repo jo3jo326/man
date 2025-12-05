@@ -137,6 +137,21 @@
       border-color: #667eea;
     }
   }
+}
+
+@media (max-width: 400px) {
+  .dashboardTitle {
+    font-size: 1.1rem;
+  }
+  .dashboardDescription {
+    font-size: 0.95rem;
+  }
+  .statNumber {
+    font-size: 1.2rem;
+  }
+  .dashboardCard {
+    padding: 0.5rem;
+  }
   .recentConversations {
     padding: 2rem;
   }

@@ -2,6 +2,7 @@ import { Link, useNavigate } from 'react-router-dom';
 import { APP_NAME, ROUTES } from '../constants';
 import styles from '../styles/NavBar.module.css';
 import { useAuth } from '../context/AuthContext';
+import { useState } from 'react';
 
 /**
  * NavBar Component
@@ -10,32 +11,50 @@ import { useAuth } from '../context/AuthContext';
 const NavBar = () => {
   const { user, logout } = useAuth();
   const navigate = useNavigate();
+  const [menuOpen, setMenuOpen] = useState(false);
+
+  // Close menu on navigation
+  const handleNav = (to: string) => {
+    setMenuOpen(false);
+    navigate(to);
+  };
+
   return (
     <nav className={styles.navbar}>
       <div className={styles.navbarContainer}>
         <div className={styles.navbarBrand}>
-          <Link to={ROUTES.HOME}>{APP_NAME}</Link>
+          <Link to={ROUTES.HOME} onClick={() => setMenuOpen(false)}>{APP_NAME}</Link>
         </div>
-        <ul className={styles.navbarMenu}>
+        <button
+          className={styles.hamburger}
+          aria-label={menuOpen ? 'Close menu' : 'Open menu'}
+          aria-expanded={menuOpen}
+          onClick={() => setMenuOpen((open) => !open)}
+        >
+          <span className={styles.hamburgerBar}></span>
+          <span className={styles.hamburgerBar}></span>
+          <span className={styles.hamburgerBar}></span>
+        </button>
+        <ul className={`${styles.navbarMenu} ${menuOpen ? styles.menuOpen : ''}`}>
           <li>
-            <Link to={ROUTES.HOME}>Home</Link>
+            <Link to={ROUTES.HOME} onClick={() => handleNav(ROUTES.HOME)}>Home</Link>
           </li>
           <li>
-            <Link to={ROUTES.ABOUT}>About</Link>
+            <Link to={ROUTES.ABOUT} onClick={() => handleNav(ROUTES.ABOUT)}>About</Link>
           </li>
           <li>
-            <Link to={ROUTES.DASHBOARD}>Dashboard</Link>
+            <Link to={ROUTES.DASHBOARD} onClick={() => handleNav(ROUTES.DASHBOARD)}>Dashboard</Link>
           </li>
           <li>
-            <Link to={ROUTES.SETTINGS}>Settings</Link>
+            <Link to={ROUTES.SETTINGS} onClick={() => handleNav(ROUTES.SETTINGS)}>Settings</Link>
           </li>
           {!user && (
             <>
               <li>
-                <Link to="/signup">Sign Up</Link>
+                <Link to="/signup" onClick={() => handleNav('/signup')}>Sign Up</Link>
               </li>
               <li>
-                <Link to="/login">Login</Link>
+                <Link to="/login" onClick={() => handleNav('/login')}>Login</Link>
               </li>
             </>
           )}
@@ -43,18 +62,10 @@ const NavBar = () => {
             <>
               <li>
                 <button
-                  style={{
-                    background: '#ef4444',
-                    color: '#fff',
-                    border: 'none',
-                    borderRadius: '1.2rem',
-                    padding: '0.5rem 1.2rem',
-                    fontWeight: 600,
-                    cursor: 'pointer',
-                  }}
+                  className={styles.logoutButton}
                   onClick={() => {
                     logout();
-                    navigate('/login');
+                    handleNav('/login');
                   }}
                 >
                   Logout

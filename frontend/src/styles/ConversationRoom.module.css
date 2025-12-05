@@ -55,4 +55,18 @@
     padding: 1rem;
     font-size: 1rem;
   }
+  .controls {
+    flex-direction: column;
+    gap: 0.5rem;
+  }
+}
+
+@media (max-width: 400px) {
+  .header {
+    font-size: 1rem;
+  }
+  .transcriptArea {
+    font-size: 0.95rem;
+    padding: 0.5rem;
+  }
 }

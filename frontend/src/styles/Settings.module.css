@@ -118,6 +118,36 @@
     padding: 1.25rem 0.5rem;
   }
   .settingsTitle {
-    font-size: 1.3rem;
+    font-size: 1.25rem;
+  }
+  .settingsDescription {
+    font-size: 1rem;
+  }
+  .settingsSection h2 {
+    font-size: 1rem;
+  }
+  .settingItem {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0.5rem;
+    padding: 0.5rem 0.5rem;
+  }
+  .settingItem label {
+    font-size: 0.95rem;
+  }
+  .settingItem input[type="range"] {
+    width: 100px;
+  }
+}
+
+@media (max-width: 400px) {
+  .settingsTitle {
+    font-size: 1rem;
+  }
+  .settingsDescription {
+    font-size: 0.9rem;
+  }
+  .settingsContent {
+    padding: 0.5rem 0.1rem;
   }
 }
