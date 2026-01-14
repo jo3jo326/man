@@ -1150,3 +1150,5 @@ If you want next, I can:
 * Design a **monorepo quality setup (JS + Python)**
 
 Just tell me which one you want next.
+ we will always check code quality
+ 
